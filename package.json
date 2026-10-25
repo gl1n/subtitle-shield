@@ -1,4 +1,7 @@
 {
+  "name": "subtitle-shield-extension",
+  "version": "0.1.0",
+  "description": "在视频画面上创建可调整的毛玻璃字幕遮挡区域。",
   "private": true,
   "scripts": {
     "test": "node --test"

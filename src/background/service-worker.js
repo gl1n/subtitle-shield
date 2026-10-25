@@ -12,8 +12,8 @@ chrome.runtime.onMessage.addListener((message) => {
         await chrome.tabs.sendMessage(message.tabId, message.payload, { frameId: frame.frameId });
       } catch {
         try {
-          await chrome.scripting.executeScript({target:{tabId:message.tabId,frameIds:[frame.frameId]},files:['overlay-utils.js','content.js']});
-          await chrome.scripting.insertCSS({target:{tabId:message.tabId,frameIds:[frame.frameId]},files:['content.css']});
+          await chrome.scripting.executeScript({target:{tabId:message.tabId,frameIds:[frame.frameId]},files:['src/shared/overlay-utils.js','src/content/content.js']});
+          await chrome.scripting.insertCSS({target:{tabId:message.tabId,frameIds:[frame.frameId]},files:['src/content/content.css']});
           await chrome.tabs.sendMessage(message.tabId, message.payload, { frameId: frame.frameId });
         } catch {}
       }

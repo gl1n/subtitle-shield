@@ -2,7 +2,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 
 globalThis.DmShieldUtils = {};
-eval(require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'overlay-utils.js'), 'utf8'));
+eval(require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'src', 'shared', 'overlay-utils.js'), 'utf8'));
 const { centerRegion, normalizePoint, containRect, shouldEnterEdit, defaultState } = globalThis.DmShieldUtils;
 
 test('自动居中只改变水平位置，不改变尺寸', () => {
