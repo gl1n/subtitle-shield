@@ -6,7 +6,7 @@
   const root = document.createElement('div'); root.id = 'dm-shield-root';
   const hint = document.createElement('div'); hint.textContent = '拖动选择需要遮挡的区域 · Esc 取消'; hint.style.cssText = 'display:none;position:absolute;top:24px;left:50%;transform:translateX(-50%);padding:9px 14px;border-radius:9px;background:#171a1fee;color:#f4f5f7;font:13px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;box-shadow:0 6px 20px #0005;'; root.append(hint);
   const shield = document.createElement('div'); shield.className = 'shield';
-  const closeButton = document.createElement('button'); closeButton.className = 'shield-close'; closeButton.type = 'button'; closeButton.textContent = '×'; closeButton.title = '关闭遮挡层';
+  const closeButton = document.createElement('button'); closeButton.className = 'shield-close'; closeButton.type = 'button'; closeButton.title = '关闭遮挡层'; closeButton.setAttribute('aria-label', '关闭遮挡层');
   const toolbar = document.createElement('div'); toolbar.className = 'shield-toolbar';
   toolbar.innerHTML = '<button class="done">完成</button><button class="cancel">取消</button>';
   ['tl','tr','bl','br'].forEach(pos => { const h=document.createElement('span');h.className=`handle ${pos}`;shield.append(h); }); shield.append(closeButton); root.append(shield,toolbar); document.documentElement.append(root);
