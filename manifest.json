@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "字幕遮挡器",
+  "version": "0.1.0",
+  "description": "在视频画面上创建可调整的毛玻璃字幕遮挡区域。",
+  "permissions": ["storage", "activeTab", "scripting", "commands", "webNavigation"],
+  "action": { "default_popup": "popup.html", "default_title": "字幕遮挡器" },
+  "background": { "service_worker": "background.js" },
+  "commands": {
+    "toggle-overlay": { "suggested_key": { "default": "Ctrl+Shift+Y", "mac": "MacCtrl+Shift+Y" }, "description": "显示或隐藏遮挡层" },
+    "edit-overlay": { "suggested_key": { "default": "Ctrl+Shift+U", "mac": "MacCtrl+Shift+U" }, "description": "调整遮挡区域" }
+  },
+  "content_scripts": [{ "matches": ["<all_urls>"], "all_frames": true, "match_about_blank": true, "match_origin_as_fallback": true, "js": ["overlay-utils.js", "content.js"], "css": ["content.css"], "run_at": "document_idle" }]
+}
